@@ -1,0 +1,72 @@
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage[T2A]{fontenc}
+\usepackage{fix-cm,anyfontsize}
+\setmainfont[Mapping=tex-text]{Minion Pro}
+\newfontfamily\cyrillicfont[Mapping=tex-text]{Minion Pro}
+\usepackage[protrusion=all]{microtype}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\usepackage[
+layoutsize={105mm,147mm}, % A6
+papersize={105mm,147mm},
+% papersize={210mm,297mm},% A4 для распечатки сейчас
+% layouthoffset=20mm,
+% layoutvoffset=30mm,
+ignoreheadfoot,
+top=15mm,
+bottom=20mm,
+hmargin={15mm,15mm},
+% textwidth=125mm,
+textheight=528pt, % 38 строк по 14pt минус 4pt на сдвиг верхней строки
+headsep=5mm,
+headheight=14pt
+,showframe
+%,showcrop
+]%
+{geometry}
+
+\usepackage[symbol]{footmisc}%для звёздочки в сносках
+\usepackage{hanging}% обратные отступы в абзацах
+
+\renewcommand{\normalsize}{\fontspec{PT Serif}\fontsize{14}{18}\selectfont}
+
+\newlength{\hpindent} % обратный абзацный отступ
+\hpindent=5mm
+
+
+\newcommand{\comment}[1]{{\fontspec{PT Serif Italic}#1}}
+
+\def\actor{}
+\def\printactor{{\fontspec{PT Sans Bold}\actor:}}
+\newcommand{\changeactor}[1]{%
+  \ifdefstrequal{\actor}{#1}%
+  	{%тот же%
+		\def\printactor{}
+	}%
+	{%
+		% смена \actor{} на {#1}
+		\def\actor{#1}
+		\def\printactor{{\fontspec{PT Sans Bold}\actor:}}
+	}
+}
+
+\newcommand{\ierey}[1]{%
+	\changeactor{Иерей}%
+	\printactor{} #1\par}
+
+\newcommand{\diak}[1]{%
+	\changeactor{Диакон}%
+	\printactor{} #1\par}
+
+\newcommand{\chtec}[1]{%
+	\changeactor{Чтец}%
+	\printactor{} #1\par}
+
+\newcommand{\xor}[1]{%
+	\changeactor{Мы}%
+	\printactor{} #1\par}
+
+\newcommand{\variants}[1]{#1\footnotemark}
+\newcommand{\variantstext}[1]{\footnotetext{#1}}
