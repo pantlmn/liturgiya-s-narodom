@@ -3,9 +3,9 @@
 \usepackage{xltxtra}
 \usepackage[T2A]{fontenc}
 % \usepackage{fix-cm,anyfontsize}
+\usepackage[protrusion=all]{microtype}
 \newfontfamily\cyrillicfont[Mapping=tex-text]{PT Serif}
 \setmainfont{PT Serif}
-\usepackage[protrusion=all]{microtype}
 \usepackage{polyglossia}
 \setdefaultlanguage{russian}
 \usepackage[
@@ -15,7 +15,7 @@ papersize={105mm,147mm},
 % layouthoffset=20mm,
 % layoutvoffset=30mm,
 ignoreheadfoot,
-top=15mm,
+top=10mm,
 bottom=20mm,
 hmargin={15mm,15mm},
 % textwidth=125mm,
@@ -34,7 +34,7 @@ headheight=14pt
 \clubpenalty 10000
 \widowpenalty 10000
 
-\renewcommand{\normalsize}{\fontspec{PT Serif}\fontsize{14}{18}\selectfont}
+\renewcommand{\normalsize}{\fontspec{PT Serif}\fontsize{10}{12}\selectfont}
 
 \newlength{\hpindent} % обратный абзацный отступ
 \hpindent=5mm
@@ -42,7 +42,7 @@ headheight=14pt
 
 
 \newcommand{\printlarge}[2]{%
-	\fontsize{14}{18}\selectfont%
+	\fontsize{14}{16}\selectfont%
 	\hangpara{\hpindent}{1}{\fontspec{PT Sans Bold}#1}#2\par}
 
 
@@ -53,7 +53,9 @@ headheight=14pt
 
 
 \newcommand{\ierey}[1]{\printsmall{Иерей: }{#1}}
-\newcommand{\diak}[1]{\printsmall{Диакон: }{#1}}
+\newcommand{\iereyX}[1]{\printsmall{}{#1}}
+% \newcommand{\diak}[1]{\printsmall{Диакон: }{#1}}
+\newcommand{\diak}[1]{\printsmall{Иерей: }{#1}}
 \newcommand{\diakX}[1]{\printsmall{}{#1}}
 \newcommand{\chtec}[1]{\printsmall{Чтец: }{#1}}%
 \newcommand{\xor}[1]{\printlarge{Мы: }{#1}}
