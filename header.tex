@@ -2,9 +2,9 @@
 \usepackage{xunicode}
 \usepackage{xltxtra}
 \usepackage[T2A]{fontenc}
-\usepackage{fix-cm,anyfontsize}
-\setmainfont[Mapping=tex-text]{Minion Pro}
-\newfontfamily\cyrillicfont[Mapping=tex-text]{Minion Pro}
+% \usepackage{fix-cm,anyfontsize}
+\newfontfamily\cyrillicfont[Mapping=tex-text]{PT Serif}
+\setmainfont{PT Serif}
 \usepackage[protrusion=all]{microtype}
 \usepackage{polyglossia}
 \setdefaultlanguage{russian}
@@ -22,13 +22,17 @@ hmargin={15mm,15mm},
 textheight=528pt, % 38 строк по 14pt минус 4pt на сдвиг верхней строки
 headsep=5mm,
 headheight=14pt
-,showframe
+% ,showframe
 %,showcrop
 ]%
 {geometry}
 
 \usepackage[symbol]{footmisc}%для звёздочки в сносках
 \usepackage{hanging}% обратные отступы в абзацах
+\usepackage{fancyhdr}% ради колонтитулов
+
+\clubpenalty 10000
+\widowpenalty 10000
 
 \renewcommand{\normalsize}{\fontspec{PT Serif}\fontsize{14}{18}\selectfont}
 
@@ -36,37 +40,33 @@ headheight=14pt
 \hpindent=5mm
 
 
-\newcommand{\comment}[1]{{\fontspec{PT Serif Italic}#1}}
 
-\def\actor{}
-\def\printactor{{\fontspec{PT Sans Bold}\actor:}}
-\newcommand{\changeactor}[1]{%
-  \ifdefstrequal{\actor}{#1}%
-  	{%тот же%
-		\def\printactor{}
-	}%
-	{%
-		% смена \actor{} на {#1}
-		\def\actor{#1}
-		\def\printactor{{\fontspec{PT Sans Bold}\actor:}}
-	}
-}
+\newcommand{\printlarge}[2]{%
+	\fontsize{14}{18}\selectfont%
+	\hangpara{\hpindent}{1}{\fontspec{PT Sans Bold}#1}#2\par}
 
-\newcommand{\ierey}[1]{%
-	\changeactor{Иерей}%
-	\printactor{} #1\par}
 
-\newcommand{\diak}[1]{%
-	\changeactor{Диакон}%
-	\printactor{} #1\par}
+\newcommand{\printsmall}[2]{%
+	\fontsize{10}{12}\selectfont%
+	\hangpara{\hpindent}{1}{\fontspec{PT Sans Bold}#1}#2\par}
 
-\newcommand{\chtec}[1]{%
-	\changeactor{Чтец}%
-	\printactor{} #1\par}
 
-\newcommand{\xor}[1]{%
-	\changeactor{Мы}%
-	\printactor{} #1\par}
 
-\newcommand{\variants}[1]{#1\footnotemark}
-\newcommand{\variantstext}[1]{\footnotetext{#1}}
+\newcommand{\ierey}[1]{\printsmall{Иерей: }{#1}}
+\newcommand{\diak}[1]{\printsmall{Диакон: }{#1}}
+\newcommand{\diakX}[1]{\printsmall{}{#1}}
+\newcommand{\chtec}[1]{\printsmall{Чтец: }{#1}}%
+\newcommand{\xor}[1]{\printlarge{Мы: }{#1}}
+\newcommand{\xorX}[1]{\printlarge{}{#1}}
+
+\newcommand{\comment}[1]{\textit{#1}}
+\newcommand{\Xcomment}[1]{\printlarge{}{\textit{#1}}}
+
+
+\newcommand{\Section}[1]{{\raggedleft%
+\fontspec{PT Sans Bold}\fontsize{16}{18}\selectfont%
+#1\par}}
+
+\newcommand{\Subsection}[1]{{\raggedleft%
+\fontspec{PT Sans Bold}\fontsize{14}{16}\selectfont%
+\pagebreak[3]#1\nopagebreak\par\nopagebreak}}
