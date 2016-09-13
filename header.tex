@@ -4,8 +4,8 @@
 \usepackage[T2A]{fontenc}
 % \usepackage{fix-cm,anyfontsize}
 \usepackage[protrusion=all]{microtype}
-\newfontfamily\cyrillicfont[Mapping=tex-text]{PT Serif}
-\setmainfont{PT Serif}
+\newfontfamily\cyrillicfont[Mapping=tex-text]{PTF55F.ttf}
+\setmainfont{PTF55F.ttf}
 \usepackage{polyglossia}
 \setdefaultlanguage{russian}
 \usepackage[
@@ -19,7 +19,6 @@ top=10mm,
 bottom=20mm,
 hmargin={15mm,15mm},
 % textwidth=125mm,
-textheight=528pt, % 38 строк по 14pt минус 4pt на сдвиг верхней строки
 headsep=5mm,
 headheight=14pt
 % ,showframe
@@ -34,7 +33,7 @@ headheight=14pt
 \clubpenalty 10000
 \widowpenalty 10000
 
-\renewcommand{\normalsize}{\fontspec{PT Serif}\fontsize{10}{12}\selectfont}
+\renewcommand{\normalsize}{\fontspec{PTF55F.ttf}\fontsize{10}{12}\selectfont}
 
 \newlength{\hpindent} % обратный абзацный отступ
 \hpindent=5mm
@@ -43,12 +42,12 @@ headheight=14pt
 
 \newcommand{\printlarge}[2]{%
 	\fontsize{14}{16}\selectfont%
-	\hangpara{\hpindent}{1}{\fontspec{PT Sans Bold}#1}#2\par}
+	\hangpara{\hpindent}{1}{\fontspec{PTS75F.ttf}#1}#2\par}
 
 
 \newcommand{\printsmall}[2]{%
 	\fontsize{10}{12}\selectfont%
-	\hangpara{\hpindent}{1}{\fontspec{PT Sans Bold}#1}#2\par}
+	\hangpara{\hpindent}{1}{\fontspec{PTS75F.ttf}#1}#2\par}
 
 
 
@@ -61,14 +60,14 @@ headheight=14pt
 \newcommand{\xor}[1]{\printlarge{Мы: }{#1}}
 \newcommand{\xorX}[1]{\printlarge{}{#1}}
 
-\newcommand{\comment}[1]{\textit{#1}}
+\newcommand{\comment}[1]{{\fontspec{PTF56F.ttf}#1}}
 \newcommand{\Xcomment}[1]{\printlarge{}{\textit{#1}}}
 
 
 \newcommand{\Section}[1]{{\raggedleft%
-\fontspec{PT Sans Bold}\fontsize{16}{18}\selectfont%
+\fontspec{PTS75F.ttf}\fontsize{16}{18}\selectfont%
 #1\par}}
 
 \newcommand{\Subsection}[1]{{\raggedleft%
-\fontspec{PT Sans Bold}\fontsize{14}{16}\selectfont%
+\fontspec{PTS75F.ttf}\fontsize{14}{16}\selectfont%
 \pagebreak[3]#1\nopagebreak\par\nopagebreak}}
