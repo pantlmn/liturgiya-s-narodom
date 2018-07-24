@@ -53,6 +53,8 @@ headheight=14pt
 
 \newcommand{\ierey}[1]{\printsmall{Иерей: }{#1}}
 \newcommand{\iereyX}[1]{\printsmall{}{#1}}
+\newcommand{\tajno}[1]{\printsmall{Иерей молится: }{#1}}
+\newcommand{\vozglas}[1]{\printsmall{Иерей возглашает: }{#1}}
 % \newcommand{\diak}[1]{\printsmall{Диакон: }{#1}}
 \newcommand{\diak}[1]{\printsmall{Иерей: }{#1}}
 \newcommand{\diakX}[1]{\printsmall{}{#1}}
@@ -62,7 +64,7 @@ headheight=14pt
 
 \newcommand{\comment}[1]{{\fontspec{PTF56F.ttf}\fontspec{PTF56F.ttf}#1}}
 \newcommand{\Xcomment}[1]{\printsmall{}{\comment{#1}}}
-
+\renewcommand{\emph}[1]{{\comment{#1}}}
 
 \newcommand{\Section}[1]{{\raggedleft%
 \fontspec{PTS75F.ttf}\fontsize{16}{18}\selectfont%
